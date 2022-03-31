@@ -8,15 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%--<%! String username = (String) request.getParameter("username");%>--%>
-<%--<%! String password = (String) request.getParameter("password");%>--%>
-
-
 
 <%  request.setAttribute("username",request.getParameter("username"));%>
 <%  request.setAttribute("password",request.getParameter("password"));%>
 
-<%--<%  request.setAttribute("profile","/login.jsp");%>--%>
 
 <html>
 <head>
@@ -35,31 +30,23 @@
   <button type="submit">Log in</button>
 </form>
 
-<%-- If the username submitted is "admin", and the password is "password", redirect the user to the profile page; otherwise, redirect back to the login form.--%>
 
-
-<%--<%  request.setAttribute("username",request.getParameter("username"));%>--%>
-<%--<%  request.setAttribute("password",request.getParameter("password"));%>--%>
-<%--<c:if test="${username.equalsIgnoreCase('admin') && password.equalsIgnoreCase('password')}">--%>
-<%--  <h1>hello is this working finally?</h1>--%>
-<%--&lt;%&ndash;  <c:redirect url="/profile.jsp"/>&ndash;%&gt;--%>
-<%--</c:if>--%>
-<%--<c:if test = "${!username.equalsIgnoreCase('admin') || !password.equalsIgnoreCase('password') || username == null || password == null}">--%>
-<%--  <h1>wrong input !! try again </h1>--%>
-<%--</c:if>--%>
+<%--i want to see wrong password--%>
+<span>${username}</span>
+<span>${password}</span>
 
 
 
 <c:if test="${username.equalsIgnoreCase('admin') && password.equalsIgnoreCase('password')}">
-  <h1>hello is this working finally?</h1>
-  <%--  <c:redirect url="/profile.jsp"/>--%>
+  <c:redirect url="/profile.jsp"/>
+  <c:if test = "${!username.equalsIgnoreCase('admin') || !password.equalsIgnoreCase('password') || username == null || password == null}">
+    <c:redirect url="/login.jsp"/>
+  </c:if>
 </c:if>
 
-<c:if test= "${username !='admin' || password !='password' || username == null || password == null}">
-  <h1>wrong input !! try again </h1>
-</c:if>>
 
 
+<
 
 
 
