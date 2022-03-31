@@ -7,17 +7,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<% String username = (String) request.getParameter("username");%>--%>
-<%--<% String password = (String) request.getParameter("password");%>--%>
+
+<%--<%! String username = (String) request.getParameter("username");%>--%>
+<%--<%! String password = (String) request.getParameter("password");%>--%>
 
 
 
 <%  request.setAttribute("username",request.getParameter("username"));%>
 <%  request.setAttribute("password",request.getParameter("password"));%>
-<%--<%  request.setAttribute("profile","/login.jsp");%>--%>
 
-<%--String redirectURL = "http://whatever.com/myJSPFile.jsp";--%>
-<%--response.sendRedirect(redirectURL);--%>
+<%--<%  request.setAttribute("profile","/login.jsp");%>--%>
 
 <html>
 <head>
@@ -27,35 +26,41 @@
 
 
 <%--LOG IN FORM--%>
-<form method="post">
+<form action= "login.jsp "method="post">
   <label for="username">User Name</label>
-  <input type="text" id="username" name = "username" placeholder="user name here">
+  <input type="text" id="username" name = "username"  placeholder="user name here">
   <label for="password">password</label>
-  <input type="password" id="password" name="password" placeholder="password here">
+  <input type="password" id="password" name="password"  placeholder="password here">
 
   <button type="submit">Log in</button>
 </form>
 
 <%-- If the username submitted is "admin", and the password is "password", redirect the user to the profile page; otherwise, redirect back to the login form.--%>
 
-<c:choose>
-<c:when test="${username.equalsIgnoreCase('admin') && password.equalsIgnoreCase('password')}">
-  <h1>is this working???? </h1>
 
-  <c:redirect url="/profile.jsp"/>
-</c:when>
-
-  <c:otherwise>
-    <c:redirect url="/login.jsp"/>
-  </c:otherwise>
-
-
+<%--<%  request.setAttribute("username",request.getParameter("username"));%>--%>
+<%--<%  request.setAttribute("password",request.getParameter("password"));%>--%>
+<%--<c:if test="${username.equalsIgnoreCase('admin') && password.equalsIgnoreCase('password')}">--%>
+<%--  <h1>hello is this working finally?</h1>--%>
+<%--&lt;%&ndash;  <c:redirect url="/profile.jsp"/>&ndash;%&gt;--%>
+<%--</c:if>--%>
+<%--<c:if test = "${!username.equalsIgnoreCase('admin') || !password.equalsIgnoreCase('password') || username == null || password == null}">--%>
+<%--  <h1>wrong input !! try again </h1>--%>
+<%--</c:if>--%>
 
 
 
+<c:if test="${username.equalsIgnoreCase('admin') && password.equalsIgnoreCase('password')}">
+  <h1>hello is this working finally?</h1>
+  <%--  <c:redirect url="/profile.jsp"/>--%>
+</c:if>
+
+<c:if test= "${username !='admin' || password !='password' || username == null || password == null}">
+  <h1>wrong input !! try again </h1>
+</c:if>>
 
 
-</c:choose>
+
 
 
 </body>
