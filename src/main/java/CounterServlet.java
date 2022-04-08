@@ -3,6 +3,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 import java.io.PrintWriter;
 @WebServlet(name = "CounterServlet", urlPatterns = "/counter")
 public class CounterServlet  extends HttpServlet{
@@ -19,5 +20,6 @@ public class CounterServlet  extends HttpServlet{
         counter++;
         response.getWriter().println("<h1>the count currently is " + counter +" on this page load</h1>");
     }
+
 
 }

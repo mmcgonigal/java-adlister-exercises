@@ -1,10 +1,14 @@
+
 import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+
+
+
 
 @WebServlet(name = "HelloWorldServlet", urlPatterns = "/hello-world")
 public class HelloWorldServlet extends HttpServlet {
@@ -25,6 +29,7 @@ public class HelloWorldServlet extends HttpServlet {
        // request.setAttribute("variableName", value);
         request.setAttribute("theNumber", 42);
         request.getRequestDispatcher("/hello.jsp").forward(request, response);
+
     }
 
 }
