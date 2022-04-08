@@ -1,4 +1,5 @@
 public class DaoFactory {
+
     private static Ads adsDao;
 
     public static Ads getAdsDao() {
@@ -6,5 +7,14 @@ public class DaoFactory {
             adsDao = new MySQLAdsDao(new Config());
         }
         return adsDao;
+
+    private static Products productsDao;
+
+    public static Products getProductsDao(){
+        if(productsDao == null){
+            productsDao = new ListProducts();
+        }
+        return productsDao;
+
     }
 }
